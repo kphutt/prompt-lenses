@@ -5,8 +5,8 @@
 ## Next Up
 
 - [x] **Phase 2.2** — Design shared fragments (`core/fragments/`)
-- [ ] **Phase 3** — Finalize mandatory lens rosters (code + doc)
-- [ ] **Phase 4** — Build mandatory lenses
+- [x] **Phase 3** — Finalize mandatory lens rosters (5 code + 6 doc)
+- [ ] **Phase 4** — Build mandatory lenses (11 total)
 
 ## Later
 

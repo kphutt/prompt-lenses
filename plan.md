@@ -61,7 +61,8 @@ prompt-lenses/
 │   │   ├── plain-language-code.md
 │   │   ├── plain-language-doc.md
 │   │   ├── failure-modes-code.md
-│   │   └── failure-modes-doc.md
+│   │   ├── failure-modes-doc.md
+│   │   └── connector-doc.md        ← doc-only mandatory (DD #28)
 │   ├── standard/
 │   │   ├── code/
 │   │   │   ├── adversary.md
@@ -128,30 +129,31 @@ From the professional editing stack and Six Thinking Hats research: lenses run i
 order. Structural/architectural lenses first, detail/style lenses last. No point polishing
 code that the Deleter says should be removed.
 
-**Code lens sequence:**
-1. Deleter (is this worth keeping?)
-2. Flow Analyst (is the data architecture sound?)
-3. Adversary / Security (can this be exploited?)
-4. Privacy (is data handled appropriately?)
-5. Failure Modes (what happens when things go wrong?)
-6. Operator (can this be run in production?)
-7. Specification Lawyer (does it do what it says?)
-8. Scientist / Testability (can we prove it works?)
-9. Time Traveler (will this age well?)
-10. Newcomer (can someone understand this?)
-11. Plain Language (are names and comments clear?)
+**Code lens sequence (5 mandatory marked with *):**
+1. Deleter (structural — is this worth keeping?)
+2. Flow Analyst (structural — is the data architecture sound?)
+3. \*Security (analytical — can this be exploited?)
+4. \*Privacy (analytical — is data handled appropriately?)
+5. \*Failure Modes (analytical — what happens when things go wrong?)
+6. Operator (analytical — can this be run in production?)
+7. Specification Lawyer (analytical — does it do what it says?)
+8. \*Testability (detail — can we prove it works?)
+9. Time Traveler (detail — will this age well?)
+10. Newcomer (detail — can someone understand this?)
+11. \*Plain Language (detail — are names and comments clear?)
 
-**Doc lens sequence:**
-1. Executive (does this have a point?)
-2. Connector (what's missing?)
-3. Skeptic (is the reasoning sound?)
-4. Security (are security implications addressed?)
-5. Privacy (are privacy implications addressed?)
-6. Implementer / Testability (can this be built and verified?)
-7. Failure Modes (what if this doesn't work?)
-8. Outsider (can someone read this cold?)
-9. Consistency Checker (does it agree with itself?)
-10. Editor / Plain Language (is it concise and clear?)
+**Doc lens sequence (6 mandatory marked with *):**
+1. Executive (structural — does this have a point?)
+2. \*Connector (structural — what's missing?)
+3. Skeptic (analytical — is the reasoning sound?)
+4. \*Security (analytical — are security implications addressed?)
+5. \*Privacy (analytical — are privacy implications addressed?)
+6. \*Testability (analytical — can this be built and verified?)
+7. \*Failure Modes (analytical — what if this doesn't work?)
+8. Outsider (detail — can someone read this cold?)
+9. Consistency Checker (detail — does it agree with itself?)
+10. Editor (detail — cut 40% with zero meaning loss)
+11. \*Plain Language (detail — concrete nouns and vivid verbs)
 
 ---
 
@@ -329,26 +331,32 @@ what every lens looks like. This is the skeleton all mandatory and standard lens
 - The Testability lens's "falsifiable check" standard was the highest-ROI transformation
   when applied to this plan. Strengthens the case for Testability as mandatory.
 
-- [ ] **3.1** Finalize mandatory lens roster for code
-  - Status: Not started
+- [x] **3.1** Finalize mandatory lens roster for code
+  - Status: **DONE**
   - Depends on: 2.1 (need the template to know what a lens contains)
-  - Output: Roster document (names + brief descriptions only)
+  - Output: `docs/decisions/0001-mandatory-code-roster.md`
+  - Result: 5 mandatory code lenses — Security, Privacy, Testability, Plain Language,
+    Failure Modes
 
-- [ ] **3.2** Finalize mandatory lens roster for docs
-  - Status: Not started
+- [x] **3.2** Finalize mandatory lens roster for docs
+  - Status: **DONE**
   - Depends on: 2.1
-  - Output: Roster document (names + brief descriptions only)
+  - Output: `docs/decisions/0002-mandatory-doc-roster.md`
+  - Result: 6 mandatory doc lenses — Security, Privacy, Testability, Plain Language,
+    Failure Modes, Connector
 
-- [ ] **3.3** Decide if any mandatory lenses should be added or cut
-  - Status: Not started
+- [x] **3.3** Decide if any mandatory lenses should be added or cut
+  - Status: **DONE**
   - Depends on: 3.1, 3.2
-  - Output: Updated roster with justification
-  - Notes: Current 5 mandatory: Security, Privacy, Testability, Plain Language, Failure Modes.
+  - Output: Updated rosters with justification (see DD #28, #29, #30)
+  - Result: Connector added as mandatory for docs only. Bug Finder, Smooth Handoff, Toil
+    Detector evaluated and deferred to Phase 5 as standard lenses. Adversary/Security,
+    Editor/Plain Language, Operator/Failure Modes stay separate with explicit scope boundaries.
 
-- [ ] **3.4** Define sequencing for mandatory + standard lenses
-  - Status: Draft above, needs finalization
-  - Depends on: 3.1, 3.2, 5.1, 5.2
-  - Output: Sequencing definitions in template or SKILL.md
+- [x] **3.4** Define sequencing for mandatory + standard lenses
+  - Status: **DONE**
+  - Depends on: 3.1, 3.2
+  - Output: Sequencing tables updated above; roster documents record per-lens positions
 
 ### Phase 4: Build Mandatory Lenses — "Make each one excellent"
 
@@ -411,7 +419,11 @@ Each lens in Phase 4 is built by following this process (derived from the templa
   - Depends on: 2.1, 2.2, 3.2
   - Output: `core/mandatory/failure-modes-doc.md`
 
-- [ ] **4.11** (Repeat for any additional mandatory lenses added in 3.3)
+- [ ] **4.11** Build connector-doc.md
+  - Status: Not started
+  - Depends on: 2.1, 2.2, 3.2
+  - Output: `core/mandatory/connector-doc.md`
+  - Notes: Doc-only mandatory lens. No code variant — see DD #28.
 
 ### Phase 5: Standard Lenses
 
@@ -505,7 +517,7 @@ Each lens in Phase 4 is built by following this process (derived from the templa
 ## Critical Path
 
 ```
-Research (done) → Template Design (2.1 done, 2.2 done) → Decide Rosters (3.x next) → Build Mandatory (4.x) → Standard Lenses (5.x) → Wrappers (6.x)
+Research (done) → Template Design (2.1 done, 2.2 done) → Decide Rosters (3.x done) → Build Mandatory (4.x next) → Standard Lenses (5.x) → Wrappers (6.x)
 ```
 
 Phase 0 (repo setup) can happen anytime.
@@ -541,8 +553,8 @@ Phase 8 (meta-prompt updates) can happen in parallel with Phases 2-4.
 4. **Core lenses are model-agnostic.** No platform-specific formatting. Platform stuff lives
    in thin wrappers.
 
-5. **5 mandatory lenses (current):** Security, Privacy, Testability, Plain Language, Failure
-   Modes. Subject to change after Phase 3.
+5. **Mandatory lenses: 5 for code, 6 for docs.** Code: Security, Privacy, Testability, Plain
+   Language, Failure Modes. Docs: same 5 plus Connector. See DD #28 for rationale.
 
 6. **Plain Language emphasizes "concrete nouns and vivid verbs."** From The Economist writing
    course. Specific phrasing, not generic "clear language."
@@ -628,21 +640,48 @@ Phase 8 (meta-prompt updates) can happen in parallel with Phases 2-4.
     because Z). No back-and-forth debate protocol. (From Phase 2.2, resolves open question
     at former line 628)
 
+28. **Connector is mandatory for docs, not code.** The "what's missing?" cognitive mode caught
+    a class of structural failures no other lens found during Phase 2.2 dogfooding — missing
+    links between sections, absent prerequisites, logical sequencing gaps. No equivalent gap
+    exists in the code lens set, where Flow Analyst and Deleter cover structural concerns.
+    This makes the mandatory set asymmetric (5 code, 6 doc). The cognitive needs differ by
+    domain. (From Phase 3)
+
+29. **Standard lenses with mandatory overlap stay separate with explicit scope boundaries.**
+    Adversary/Security, Editor/Plain Language, and Operator/Failure Modes are genuinely
+    different cognitive modes — creative attack narrative vs systematic control checking,
+    structural cutting vs lexical clarity, 3AM incident simulation vs abstract failure mapping.
+    The template's `<out_of_scope>` mechanism handles overlap: each standard lens's out-of-scope
+    references the mandatory lens it's most likely confused with. (From Phase 3)
+
+30. **Bug Finder, Smooth Handoff, and Toil Detector are standard lenses.** All three were
+    evaluated for mandatory status during Phase 3. Bug Finder's "trace execution" mode is
+    distinct but not universal. Smooth Handoff is distinct but niche. Toil Detector is
+    genuinely novel but not universal enough. Evaluation of where they fit in the standard
+    set is deferred to Phase 5. (From Phase 3)
+
 ---
 
 ## Open Questions
 
 - [ ] "What's good" sourcing — Do lenses each include a brief "strengths" note, or does
   synthesis analyze the artifact independently for strengths? (Resolve during Phase 3 or 4.)
-- [ ] Final mandatory lens count — 5 is current, Phase 3 may add or cut
+- [x] ~~Final mandatory lens count — 5 is current, Phase 3 may add or cut~~ Resolved: 5 code,
+  6 doc (Connector added for docs only). See DD #28.
 - [ ] Whether standard lenses need the same per-file treatment as mandatory
-- [ ] How to handle lenses that might be mandatory for code but not docs (or vice versa)
+- [x] ~~How to handle lenses that might be mandatory for code but not docs (or vice versa)~~
+  Resolved: asymmetric sets are fine. Connector is doc-only mandatory. See DD #28.
 - [ ] Versioning strategy — do we track lens changes over time? Changelogs?
 - [ ] Depth parameter — mandatory-only quick mode vs. full battery?
 - [ ] How custom/project-specific lenses relate to the standard set at runtime
-- [ ] Whether the Adversary should merge into mandatory Security or stay separate
-- [ ] Whether the Editor should merge into mandatory Plain Language or stay separate
-- [ ] Whether the Operator should merge into mandatory Failure Modes or stay separate
+- [x] ~~Whether the Adversary should merge into mandatory Security or stay separate~~ Resolved:
+  stay separate. Different cognitive modes (creative attack narrative vs systematic analysis).
+  See DD #29.
+- [x] ~~Whether the Editor should merge into mandatory Plain Language or stay separate~~ Resolved:
+  stay separate. Different cognitive levels (structural cutting vs lexical clarity). See DD #29.
+- [x] ~~Whether the Operator should merge into mandatory Failure Modes or stay separate~~ Resolved:
+  stay separate. Different cognitive modes (3AM incident simulation vs abstract failure mapping).
+  See DD #29.
 - [ ] promptfoo integration timeline — before or after initial lens build?
 - [ ] Whether assemble.py is worth building or manual sync is fine
 - [x] ~~How to handle inter-lens tensions (structured debate? simple flagging?)~~ Resolved:
@@ -658,26 +697,9 @@ Phase 8 (meta-prompt updates) can happen in parallel with Phases 2-4.
   Do the fragments add significantly to this budget? Need to measure once fragments exist.
 - [ ] The Quality Checklist in the template (Section D) — should this be extracted into a
   standalone file that the lens-quality meta-prompt references?
-- [ ] Lens candidate: **Bug Finder** — dedicated "find what's broken" lens (code: trace
-  execution paths, off-by-ones, stale state; doc: factual errors, dead refs, unimplementable
-  specs). Evaluate overlap with Scientist, Spec Lawyer, Consistency Checker.
-- [ ] Lens candidate: **Smooth Handoff** — will the next person trip over something? (doc:
-  navigation friction, things that look wrong but aren't; code: API ergonomics, non-obvious
-  happy paths). Evaluate overlap with Outsider, Newcomer, Implementer.
-- [ ] Lens candidate: **Toil Detector** — manual effort that could be automated, challenging
-  assumptions about how things are done (doc: manual processes that could be scripted; code:
-  repeated patterns, human-in-the-loop steps a machine could handle). Evaluate overlap with
-  Operator, Implementer.
-- [ ] Three lens candidates to evaluate during Phase 3 roster finalization:
-  - **Bug Finder** — dedicated "find what's broken" lens (code + doc variants). Existing lenses
-    find bugs as side effects; none focus on it directly. Evaluate overlap with Scientist,
-    Spec Lawyer, Consistency Checker.
-  - **Smooth Handoff** — will the next person trip over something? Friction, misleading
-    signals, undocumented-by-design decisions. Distinct from Implementer (sufficiency) and
-    Outsider (comprehension). Probably doc-primary, possibly code variant for API ergonomics.
-  - **Toil Detector** — manual effort that could be automated, challenging assumptions about
-    what has to be manual. Code: repeated patterns, manual workflows. Doc: procedures that
-    could be CI checks, checklists that could be gates. Evaluate overlap with Operator.
+- [x] ~~Lens candidates: Bug Finder, Smooth Handoff, Toil Detector~~ Resolved: all three are
+  standard lenses, not mandatory. Evaluation of where they fit in the standard set deferred
+  to Phase 5. See DD #30.
 
 ---
 
@@ -696,4 +718,4 @@ Phase 8 (meta-prompt updates) can happen in parallel with Phases 2-4.
 
 ---
 
-*Last updated: Feb 25, 2026. This document is the single source of truth for the prompt-lenses project.*
+*Last updated: Feb 25, 2026 (Phase 3 complete). This document is the single source of truth for the prompt-lenses project.*

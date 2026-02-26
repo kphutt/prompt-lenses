@@ -15,3 +15,6 @@ Thumbs.db
 *~
 .vscode/
 .idea/
+
+# Session context (not part of the product)
+HANDOFF.md
