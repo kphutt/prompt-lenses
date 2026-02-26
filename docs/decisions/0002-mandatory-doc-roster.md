@@ -1,8 +1,8 @@
 # Decision Record: Mandatory Doc Lens Roster
 
-**Status:** Accepted
-**Date:** 2026-02-25
-**Phase:** 3 (Decide)
+## Status
+
+Accepted — 2026-02-25, Phase 3 (Decide)
 
 ## Context
 
