@@ -1,30 +1,37 @@
 # prompt-lenses
 
-A personal library of high-quality, model-agnostic prompts ("lenses") for reviewing code and documents through distinct cognitive perspectives.
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-Each lens is a fully realized analytical mode — not "check for X" but a complete reorientation of what you're looking for, what questions you're asking, and what "good" looks like.
+A prompt library for reviewing code and documents through distinct cognitive perspectives.
 
 ## The Idea
 
-Investing heavily in prompt quality produces compounding returns. The models get better, but better models with better prompts pull even further ahead.
+Most review prompts are checklists — "check for security issues," "check for performance problems." Lenses are different: each one is a complete cognitive reorientation that changes what you notice, what questions you ask, and what "good" looks like.
 
-Lenses are built on a [shared template](core/template/lens-template.md) with an 8-element structure (Identity → Mission & Scope → Criteria → Methodology → Output Format → Examples → Edge Cases → Closing Anchor) and validated against a 6-test quality framework. They compose shared fragments for output format, severity ratings, and anti-padding rules.
+A checklist says *"check for security vulnerabilities."* A lens says:
+
+> You are a creative, patient attacker. You don't run scanners — you *read* code and think about what the author assumed but never enforced. Your art is finding the gap between what the code *should* reject and what it *actually* rejects, then chaining those gaps into something devastating.
+
+The difference: a checklist scans for known patterns. A lens adopts a cognitive mode that surfaces findings the reviewer wouldn't have looked for.
+
+## Influences
+
+[Six Thinking Hats](https://en.wikipedia.org/wiki/Six_Thinking_Hats) (perspective sequencing), [ATAM](https://en.wikipedia.org/wiki/Architecture_tradeoff_analysis_method) (architectural tradeoff analysis), multi-pass editing from publishing (macro-to-micro sequencing), [thibaultyou/prompt-library](https://github.com/thibaultyou/prompt-library) (confidence scoring and abstention).
 
 ## Status
 
-**Early development.** Research complete, template designed, building lenses next.
-
-See [plan.md](plan.md) for the full project plan and [ROADMAP.md](ROADMAP.md) for what's next.
+Research complete — landscape survey, prompt anatomy study, 30 design decisions recorded. [Template](core/template/lens-template.md) and shared [fragments](core/fragments/) built. Zero lenses built yet.
 
 ## Structure
 
 ```
-core/           Lenses, template, and fragments (model-agnostic)
-meta/           Meta-prompts that generate and validate lenses
-platforms/      Thin wrappers for Claude, Gemini, etc.
-research/       Research outputs and the prompts that produced them
+core/           Template, fragments, and draft lens definitions
+research/       Landscape survey, prompt anatomy study
+meta/           Quality framework, roster definitions
+docs/           Design decisions
+platforms/      Platform-specific wrappers (placeholder)
 ```
 
 ## License
 
-Personal project. Not yet licensed for distribution.
+MIT
