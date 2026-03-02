@@ -1,6 +1,7 @@
 # Landscape Survey: Prompt Libraries, Review Frameworks & Meta-Prompting Systems
 
-**Date**: February 24, 2026  
+**Date**: February 24, 2026
+**Author**: Karsten Huttelmaier — co-authored with Claude
 **Purpose**: Inform the design of a lens-based, model-agnostic prompt library for code and document review
 
 ---

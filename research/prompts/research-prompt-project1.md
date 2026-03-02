@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are conducting a thorough landscape survey of how people are building reusable prompt
 libraries, code/document review frameworks, and meta-prompting systems.
 

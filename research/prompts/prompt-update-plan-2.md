@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are updating the master plan document for the Lenses project. Phase 2.1 (Design the lens
 template) has been completed. Update the plan to reflect this.
 

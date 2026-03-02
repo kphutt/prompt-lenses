@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are updating the master plan document for a project called "Lenses." Two research projects
 have now been completed, and the plan needs to reflect what was learned.
 

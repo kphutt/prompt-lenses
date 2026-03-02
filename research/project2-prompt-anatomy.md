@@ -1,6 +1,7 @@
 # Prompt Anatomy: Structural Patterns of Excellent Prompts
 
-## Research Findings — February 2026
+**Author**: Karsten Huttelmaier — co-authored with Claude
+**Date**: February 2026
 
 ---
 

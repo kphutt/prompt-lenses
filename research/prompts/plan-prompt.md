@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are creating a living plan document for a project called "Lenses" — a personal library of
 high-quality, model-agnostic prompts for reviewing code and documents through distinct
 cognitive perspectives.

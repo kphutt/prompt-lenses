@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are conducting a focused research dive on **prompt anatomy** — the structural patterns
 inside the best individual prompts. This is NOT a broad landscape survey. This is specifically
 about: what are the structural bones of an excellent prompt, and why do certain structural

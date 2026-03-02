@@ -1,3 +1,5 @@
+**Author**: Karsten Huttelmaier — co-authored with Claude
+
 You are designing the **lens template** — the structural spec that every review lens in the
 Lenses project will follow. This is the single most load-bearing artifact in the project.
 Every mandatory lens, every standard lens, and every custom lens will be built on this
