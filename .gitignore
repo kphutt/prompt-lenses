@@ -1,11 +1,3 @@
-# Secrets
-.env
-*.pem
-*.key
-
-# Logs
-debug.log
-
 # OS files
 .DS_Store
 Thumbs.db
@@ -19,5 +11,13 @@ Thumbs.db
 # Claude Code
 .claude/
 
-# Session context (not part of the product)
+# Logs
+debug.log
+
+# Environment & secrets
+.env
+*.pem
+*.key
+
+# Project-specific
 HANDOFF.md
