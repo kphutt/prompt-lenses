@@ -16,5 +16,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Claude Code
+.claude/
+
 # Session context (not part of the product)
 HANDOFF.md
