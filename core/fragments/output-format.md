@@ -28,3 +28,5 @@ Report only findings where a reasonable practitioner would act. Apply a "so what
 - **High** — Clear evidence in the artifact. The issue is demonstrable.
 - **Medium** — Likely an issue, but depends on context not visible in the artifact.
 - **Low** — Possible concern. Flag for human judgment.
+
+**Low-confidence findings require cited evidence.** Before reporting a Low-confidence finding, cite the specific location and text in the artifact that raised the concern. If you cannot point to a concrete line, pattern, or passage — omit the finding. "This pattern sometimes indicates a problem" is not a finding from this artifact.
