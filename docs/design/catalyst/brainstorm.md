@@ -77,7 +77,7 @@ See `concept.md` Part 14 for the full indexed list of 15 key insights.
 
 The model-agnostic, platform-independent three-stage pipeline. Replaces or succeeds `catalyst-v1.md`. This is a new category in prompt-lenses — pipelines alongside lenses.
 
-### 2. Claude Code skill: `ai-toolkit/skills/catalyst/SKILL.md`
+### 2. Claude Code skill (a private `/catalyst` wrapper)
 
 Thin operational wrapper that loads the pipeline and makes it invocable as `/catalyst` in Claude Code. Same pattern as `platforms/claude/SKILL.md` consuming lenses.
 
@@ -94,7 +94,7 @@ Thin operational wrapper that loads the pipeline and makes it invocable as `/cat
 - [ ] Should the pipeline include confidence separation (assess confidence before generating the idea)?
 - [ ] Should there be a safe-pick detector within Stage 3? ("Is this the most impactful idea or the safest?")
 - [ ] Output format: commander's intent style (end-state description), adversarial counterargument, or both?
-- [ ] How does `/catalyst` interact with other ai-toolkit skills?
+- [ ] How does `/catalyst` interact with other Claude Code skills?
 - [ ] How does the three-stage pipeline relate to the lens synthesis step ("the one change that would improve this artifact the most")?
 - [ ] Automation potential — Step 1 as a cheap screen on Google Drive docs, git hooks, etc. See `concept.md` Part 8.
 
