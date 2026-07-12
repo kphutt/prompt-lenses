@@ -4,8 +4,8 @@
 
 ```
 core/           ← The intellectual property. Model-agnostic lenses and fragments.
-  template/     ← The structural spec every lens inherits (Phase 2.1 — done)
-  fragments/    ← Shared components composed into every lens (Phase 2.2 — next)
+  template/     ← The structural spec every lens inherits.
+  fragments/    ← Shared components composed into every lens.
   mandatory/    ← Lenses that run on every review (Security, Privacy, etc.)
   standard/     ← Optional lenses by domain (code/ and doc/)
   custom/       ← User-generated lenses for novel artifact types
@@ -29,7 +29,7 @@ scripts/        ← Build tooling (e.g., fragment assembly)
 
 - `plan.md` — Single source of truth for the project. All design decisions live here.
 - `core/template/lens-template.md` — The skeleton every lens inherits. Read this before writing any lens.
-- `ROADMAP.md` — Prioritized backlog of next steps.
+- `ROADMAP.md` — Forward roadmap (big rocks).
 
 ## Docs
 
