@@ -1,4 +1,4 @@
-# prompt-lenses — Conventions
+# prompt-lenses — repo guide
 
 ## Structure
 
